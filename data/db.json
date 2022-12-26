@@ -1,0 +1,71 @@
+{
+  "posts": [
+    {
+      "user_id": 1,
+      "title": "UserRef 😛",
+      "body": "fjdklsaladfdsa",
+      "user_name": "undefined undefined",
+      "created_at": "26.12.2022 09:09:48",
+      "id": 3
+    },
+    {
+      "user_id": 7,
+      "title": "React router dom👀",
+      "body": "asdfghjkiouytrewsxcvbnjkuytrew",
+      "user_name": "undefined undefined",
+      "created_at": "26.12.2022 11:36:37",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "email": "rashidbek0309@gmail.com",
+      "password": "$2a$10$aO8eCJKPMTt4pHWbCQW4muTq.vQ.yxBpKpmvDLSp0RbaeqTvhc5DO",
+      "firstname": "rashidbek",
+      "lastname": "Xoldarov",
+      "id": 1
+    },
+    {
+      "email": "demo1@gmail.com",
+      "password": "$2a$10$AzIKIetc1xgbupMvIChdhOBzjGuDWjRDVa43p/.jmmwgMoIhTgKHK",
+      "firstname": "demo1",
+      "lastname": "1demo",
+      "id": 2
+    },
+    {
+      "email": "demo2@gmail.com",
+      "password": "$2a$10$P0.hPxdwobCWFXYdZseCp.3eEROUrbaX4a3AtPegZQROxbmJNVboS",
+      "firstname": "demo2",
+      "lastname": "2demo",
+      "id": 3
+    },
+    {
+      "email": "demo3@gmail.com",
+      "password": "$2a$10$nRCzCG.7CGV1PpgG0ZpcJejarcS1Xf4gYezWZRAkAw3fRQJOppiEi",
+      "firstname": "demo3",
+      "lastname": "3demo",
+      "id": 4
+    },
+    {
+      "email": "demo4@gmail.com",
+      "password": "$2a$10$YjMUINsyhtwwHVJUBRCE0.qRr1ZlMvo8z4xXljfmM07ARttei2JhS",
+      "firstname": "demo4",
+      "lastname": "4demo",
+      "id": 5
+    },
+    {
+      "email": "demo5@gmail.com",
+      "password": "$2a$10$ZHYWaSx4m4JiRq0Sx73K8elXx8yZRfGavncbh3YS4qDTvwjxXJFW6",
+      "firstname": "demo5",
+      "lastname": "5demo",
+      "id": 6
+    },
+    {
+      "email": "demo6@gmail.com",
+      "password": "$2a$10$NPGXzWUmlg2z31GACRopceLLtT/A/FAwNTJ7/YJJxwC0W6bvypsla",
+      "firstname": "demo6",
+      "lastname": "6demo",
+      "id": 7
+    }
+  ]
+}
