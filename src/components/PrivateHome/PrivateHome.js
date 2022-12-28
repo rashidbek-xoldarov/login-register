@@ -4,7 +4,6 @@ import { AuthContext } from "../../context/auth-context";
 
 const PrivateHome = () => {
   const { me } = useContext(AuthContext);
-  console.log(me);
 
   return (
     <div className="container mx-auto">

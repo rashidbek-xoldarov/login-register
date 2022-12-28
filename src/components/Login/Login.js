@@ -1,37 +1,26 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import { TokenContext } from "../../context/token-context";
 import { AuthContext } from "../../context/auth-context";
 import { Link, useNavigate } from "react-router-dom";
+import { ErrorMessage, Field, Form, Formik } from "formik";
+import * as Yup from "yup";
 
 const Login = () => {
   const { setToken } = useContext(TokenContext);
   const { setMe } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const [emailValue, setEmailValue] = useState("");
-  const [passwordValue, setPasswordValue] = useState("");
-  const [emailInvalid, setEmailInvalid] = useState(false);
-  const [passwordInvalid, setPasswordInvalid] = useState(false);
-  const [disabled, setDisabled] = useState(true);
-  const [loginError, setLoginError] = useState("");
-
-  const handlerEmailValue = (e) => {
-    setEmailValue(e.target.value);
-    setEmailInvalid(false);
+  const initialValues = {
+    user_email: "",
+    user_password: "",
   };
 
-  const handlerPasswordValue = (e) => {
-    setPasswordValue(e.target.value);
-    setPasswordInvalid(false);
-  };
-
-  const submitFormHandler = (e) => {
-    e.preventDefault();
+  const submitFormHandler = (value) => {
     axios
       .post("http://localhost:8080/login", {
-        email: emailValue,
-        password: passwordValue,
+        email: value.user_email,
+        password: value.user_password,
       })
       .then((data) => {
         if (data.status === 200) {
@@ -39,20 +28,18 @@ const Login = () => {
           setMe(data.data.user);
           navigate("/");
         }
-      })
-      .catch((err) => {
-        setLoginError(err.response.data);
       });
   };
 
-  useEffect(() => {
-    const regex = RegExp("^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$");
-    if (emailValue.match(regex) && passwordValue.length > 6) {
-      setDisabled(false);
-    } else {
-      setDisabled(true);
-    }
-  }, [emailValue, passwordValue]);
+  const validation = Yup.object({
+    user_email: Yup.string()
+      .email("Should be valid email")
+      .required("Required"),
+    user_password: Yup.string()
+      .min(3, "Min 3")
+      .max(8, "Max 8")
+      .required("Required"),
+  });
 
   return (
     <div className="col-6 mx-auto shadow p-4 mt-5 text-center">
@@ -60,54 +47,45 @@ const Login = () => {
       <p>
         You are not registered? <Link to="/register">register</Link>
       </p>
-      <form onSubmit={submitFormHandler}>
-        <input
-          onChange={handlerEmailValue}
-          onBlur={() => {
-            const regex = RegExp("^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$");
-            if (!emailValue.match(regex)) {
-              setEmailInvalid(true);
-            }
-          }}
-          className="form-control mb-3"
-          type="email"
-          value={emailValue}
-          placeholder="Email"
-          required
-        />
-        {emailInvalid && (
-          <span className="text-danger text-start d-block">
-            Enter valid text
-          </span>
-        )}
-        <input
-          onChange={handlerPasswordValue}
-          onBlur={() => {
-            if (passwordValue.length < 6) {
-              setPasswordInvalid(true);
-            }
-          }}
-          className="form-control mb-3"
-          value={passwordValue}
-          type="password"
-          placeholder="Password"
-          required
-        />
-        {passwordInvalid && (
-          <span className="text-danger text-start d-block">
-            Enter valid text
-          </span>
-        )}
-        {loginError && (
-          <span className="d-block text-danger text-start">{loginError}</span>
-        )}
-        <button
-          type="submit"
-          className={disabled ? "btn btn-primary disabled" : "btn btn-primary"}
-        >
-          Send
-        </button>
-      </form>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validation}
+        onSubmit={submitFormHandler}
+      >
+        {(formik) => {
+          return (
+            <Form>
+              <Field
+                className="form-control mb-3"
+                type="email"
+                name="user_email"
+                placeholder="Email"
+                required
+              />
+              <ErrorMessage
+                className="text-start text-danger"
+                component={"div"}
+                name="user_email"
+              />
+              <Field
+                className="form-control mb-3"
+                type="password"
+                placeholder="Password"
+                name="user_password"
+                required
+              />
+              <ErrorMessage
+                className="text-start text-danger"
+                component={"div"}
+                name="user_password"
+              />
+              <button type="submit" className="btn btn-primary">
+                Send
+              </button>
+            </Form>
+          );
+        }}
+      </Formik>
     </div>
   );
 };

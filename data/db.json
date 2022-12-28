@@ -1,4 +1,66 @@
 {
-  "posts": [],
-  "users": []
+  "posts": [
+    {
+      "user_id": 2,
+      "title": "react2",
+      "body": "lorem ipsun",
+      "user_name": "undefined undefined",
+      "created_at": "26.12.2022 15:25:27",
+      "id": 1
+    },
+    {
+      "user_id": 3,
+      "title": "useRef 2",
+      "body": "lorem ipsum",
+      "user_name": "undefined undefined",
+      "created_at": "26.12.2022 16:32:19",
+      "id": 2
+    },
+    {
+      "user_id": 4,
+      "title": "121212",
+      "body": "sdsdsdsdsdsdsdsdsdsdsdsdsdsdsdsd",
+      "user_name": "undefined undefined",
+      "created_at": "28.12.2022 12:22:52",
+      "id": 3
+    },
+    {
+      "user_id": 4,
+      "title": "sdsdsd",
+      "body": "sdsdsdsdsdsdsdsd",
+      "user_name": "demo8 8demo",
+      "created_at": "28.12.2022 15:16:16",
+      "id": 4
+    }
+  ],
+  "users": [
+    {
+      "email": "demo1@gmail.com",
+      "password": "$2a$10$cD4bLT1p..pN5AaEPCIcg.8sZCT8OT9/CYAIC9o3lgD5ntczNU/vu",
+      "firstname": "demo1",
+      "lastname": "1demo",
+      "id": 1
+    },
+    {
+      "email": "rashidbek0309@gmail.com",
+      "password": "$2a$10$fAQcA0aZk5Foz2gnYrxL1.HqVJ1zuUDK/uvFNYEfiUxCVb7bqFDPK",
+      "firstname": "qqqqq",
+      "lastname": "rrrrr",
+      "id": 2
+    },
+    {
+      "email": "demo7@gmail.com",
+      "password": "$2a$10$p0v58QZEbSm3I30xgsX0t.rSBYol1vLiD6atTDq7cNd2RBk8Zspcm",
+      "firstname": "demo7",
+      "lastname": "7demo",
+      "id": 3
+    },
+    {
+      "email": "demo8@gmail.com",
+      "password": "$2a$10$be4J.e/BuVGgJQSeJfVyRu9d4Dt2EOvIRpWwTUfl0jMrWhVeO82x6",
+      "firstname": "demo8",
+      "lastname": "8demo",
+      "id": 4
+    }
+  ]
 }
